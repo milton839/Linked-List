@@ -28,16 +28,36 @@ void insertTail(Node *&head, Node *&tail, int val)
     tail = newNode;
 }
 
-void printLinkedList(Node *head)
+void printLinkedList(Node *tmp)
 {
-    Node *tmp = head;
-    cout << "Print LinkedList: ";
-
-    while (tmp)
+    if (tmp == NULL)
     {
-        cout << tmp->val << " ";
-        tmp = tmp->Next;
+        return;
     }
+
+     // Print Normally
+     cout<<tmp->val<<" ";
+    printLinkedList(tmp->Next);
+    
+    // Print Reverse system
+    // printLinkedList(tmp->Next);
+    // cout<<tmp->val<<" ";
+
+    
+}
+
+void printLinkedListReversely(Node *tmp)
+{
+    if (tmp == NULL)
+    {
+        return;
+    }
+
+   
+    
+    // Print Reverse system
+    printLinkedListReversely(tmp->Next);
+    cout<<tmp->val<<" ";
 }
 
 int main()
@@ -57,8 +77,13 @@ int main()
 
         insertTail(head, tail, val); // Time Complexity O(1)
     }
-
+    cout<<"Print Linkedlist: ";
     printLinkedList(head);
+
+    cout<<endl;
+
+    cout<<"Print Linkedlist Reverly: ";
+    printLinkedListReversely(head);
 
     return 0;
 }
