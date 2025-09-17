@@ -57,14 +57,18 @@ int main()
 {
     Node *head = NULL;
     int val;
+    int count = 0;
     while(true){
         cin>>val;
         if(val == -1){
             break;
         }
+        count++;
         insertTail(head, val);
     }
 
     printLinkedList(head);
+
+    cout<<"Total Element: "<<count<<endl;
     return 0;
 }
