@@ -63,10 +63,13 @@ void duplicateElementCheck(Node* head){
     // cout<<"Duplicate Element not Available";
 
 
+    // Time Complexity O(n) & Space Complexity O(n)
     unordered_set<int> seen;
     Node* curr = head;
+    int duplicateCount = 0;
     while (curr) {
         if (seen.count(curr->val)) {
+            duplicateCount++;
             cout<<"Duplicate Element Available"; // Duplicate found
             return;
         }
@@ -74,8 +77,6 @@ void duplicateElementCheck(Node* head){
         curr = curr->Next;
     }
     cout<<"Duplicate Element not Available"; // No duplicates
-
-
     
 }
 
