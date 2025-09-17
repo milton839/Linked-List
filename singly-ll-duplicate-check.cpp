@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <unordered_set>
+
 using namespace std;
 
 class Node
@@ -42,6 +44,41 @@ void printLinkedList(Node *head){
     cout<<endl;
 }
 
+void duplicateElementCheck(Node* head){
+    // Time Complexity O(n^2) & Space Complexity O(1)
+    // Node* tmp = head;
+    // while(tmp){
+    //     Node* runner = tmp->Next;
+    //     while(runner){
+    //         if (tmp->val ==runner->val)
+    //         {
+    //             cout<<"Duplicate Element Available";
+    //             return;
+    //         }
+    //         runner=runner->Next;
+            
+    //     }
+    //     tmp=tmp->Next;
+    // }
+    // cout<<"Duplicate Element not Available";
+
+
+    unordered_set<int> seen;
+    Node* curr = head;
+    while (curr) {
+        if (seen.count(curr->val)) {
+            cout<<"Duplicate Element Available"; // Duplicate found
+            return;
+        }
+        seen.insert(curr->val);
+        curr = curr->Next;
+    }
+    cout<<"Duplicate Element not Available"; // No duplicates
+
+
+    
+}
+
 int main()
 {
     Node *head = NULL;
@@ -50,7 +87,8 @@ int main()
         cout<<endl;
         cout<<"Option 1: Insert Node at Tail Position"<<endl;
         cout<<"Option 2: Print Linked List"<<endl;
-        cout<<"Option 3: Terminate"<<endl<<endl;
+        cout<<"Option 3: Duplicate Element Check"<<endl;
+        cout<<"Option 4: Terminate"<<endl<<endl;
 
 
         int option;
@@ -66,6 +104,9 @@ int main()
             printLinkedList(head);
         }
         else if(option == 3){
+            duplicateElementCheck(head);
+        }
+        else if(option == 4){
             break;
         }
     }
