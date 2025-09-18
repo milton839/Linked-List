@@ -54,6 +54,12 @@ void printMiddleValue(Node *head, int size)
 {
     Node *tmp = head;
 
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+
     int pos = 0;
     if (size % 2 == 1)
     {
@@ -76,7 +82,6 @@ void printMiddleValue(Node *head, int size)
     {
         cout << "Middle Value is = " << tmp->val << " " << tmp->Next->val;
     }
-    
 }
 
 int main()
